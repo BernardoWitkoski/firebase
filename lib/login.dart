@@ -28,9 +28,23 @@ class _LoginState extends State<Login> {
         });
     }
 
-
   }
-  _logarUsuario() {}
+
+  _verificarUsuarioLogado() {
+    User? usuarioLogado = FirebaseAuth.instance.currentUser;
+    if(usuarioLogado != null) {
+      setState(() {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+      });
+    }
+  }
+
+  void initState() {
+    super.initState();
+    _verificarUsuarioLogado();
+  }
+
+  // _logarUsuario() {}
 
 
   @override
