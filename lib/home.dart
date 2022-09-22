@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  _deslogar() async {
+  _logout() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth.signOut();
     setState(() {
@@ -21,7 +21,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Container(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(padding: EdgeInsets.all(7),
+              child: ElevatedButton(
+                onPressed: _logout,
+                child: Text("Sair"),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

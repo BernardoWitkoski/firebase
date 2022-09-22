@@ -14,7 +14,7 @@ class _LoginState extends State<Login> {
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
 
-  _validaCampo() {
+  _login() {
     String email = _controllerEmail.text;
     String senha = _controllerSenha.text;
 
@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                ElevatedButton(onPressed: _validaCampo, child: Text("Entrar"))
+                ElevatedButton(onPressed: _login, child: Text("Entrar"))
               ],
             ),
           ),
