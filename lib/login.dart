@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:projeto_firebase/home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -12,7 +14,22 @@ class _LoginState extends State<Login> {
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
 
-  _validaCampo() {}
+  _validaCampo() {
+    String email = _controllerEmail.text;
+    String senha = _controllerSenha.text;
+
+    if(email.isNotEmpty && email.contains("@")){
+      if(senha.isNotEmpty && senha.length >= 6);
+        FirebaseAuth auth = FirebaseAuth.instance;
+        auth.signInWithEmailAndPassword(email: email, password: senha).then((value) => {
+          setState((){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+          }),
+        });
+    }
+
+
+  }
   _logarUsuario() {}
 
 
