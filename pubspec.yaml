@@ -50,6 +50,9 @@ dev_dependencies:
   firebase_auth: ^3.9.0
   firebase_database: ^9.1.4
 
+flutter_icons:
+  image_path: "images/logo2.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
