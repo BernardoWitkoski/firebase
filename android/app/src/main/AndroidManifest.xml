@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.bernardowitkoski.projeto_firebase">
    <application
-        android:label="projeto_firebase"
+        android:label="route.me"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
