@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class CriarConta extends StatefulWidget {
   const CriarConta({Key? key}) : super(key: key);
@@ -14,6 +16,34 @@ class _CriarContaState extends State<CriarConta> {
   TextEditingController _controllerSenha = TextEditingController();
   TextEditingController _controllerRepetirSenha = TextEditingController();
   TextEditingController _controllerCpf = TextEditingController();
+  
+  String _mensagemErro = " ";
+
+  _validaCampos() {
+    String nome = _controllerNome.text;
+    String email = _controllerEmail.text;
+    String senha = _controllerSenha.text;
+    String repetirSenha = _controllerRepetirSenha.text;
+    String cpf = _controllerCpf.text;
+
+    if(nome.isNotEmpty) {
+      if(email.isNotEmpty && email.contains("@")) {
+        if(cpf.isNotEmpty && cpf.length == 11) {
+          if(senha.isNotEmpty && senha.length >= 6) {
+            if(senha == repetirSenha) {
+              _cadastraUsuario(nome, email, senha, cpf);
+            }
+            else{
+              setState(() {
+                _mensagemErro = "As senhas são diferentes!";
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +174,6 @@ class _CriarContaState extends State<CriarConta> {
           ),
         ),
       ),
-    );
     );
   }
 }
