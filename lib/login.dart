@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:projeto_firebase/criarConta.dart';
 import 'package:projeto_firebase/home.dart';
 
 class Login extends StatefulWidget {
@@ -79,7 +80,15 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                ElevatedButton(onPressed: _login, child: Text("Entrar"))
+                ElevatedButton(onPressed: _login, child: Text("Entrar")),
+                Padding(padding: EdgeInsets.all(15), 
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: ((context) => const CriarConta())));
+                    }, 
+                    child: const Text("Criar conta"),
+                  ),
+                )
               ],
             ),
           ),
