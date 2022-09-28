@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:projeto_firebase/home.dart';
 
 class CriarConta extends StatefulWidget {
   const CriarConta({Key? key}) : super(key: key);
@@ -44,6 +45,31 @@ class _CriarContaState extends State<CriarConta> {
     }
   }
 
+  _cadastraUsuario(String nome, String email, String senha, String cpf) {
+    FirebaseDatabase db = FirebaseDatabase.instance;
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    // estrutura dos dados no banco
+    Map<String, dynamic> dadosUsuarios = {
+      'nome':nome,
+      'email':email,
+      'cpf':cpf
+    };
+
+    //criando usuario
+
+    auth.createUserWithEmailAndPassword(
+      email: email, password: senha).then((firebaseUser) => {
+        db.ref("usuarios").child(firebaseUser.user!.uid).set(dadosUsuarios),
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+          builder: ((context) => const Home())), (route) => false)
+    }).catchError((error) {
+      setState(() {
+        _mensagemErro = "Erro ao criar usuário, $error";
+      });
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
