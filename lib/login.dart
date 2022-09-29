@@ -24,7 +24,8 @@ class _LoginState extends State<Login> {
         FirebaseAuth auth = FirebaseAuth.instance;
         auth.signInWithEmailAndPassword(email: email, password: senha).then((value) => {
           setState((){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+          builder: ((context) => const Home())), (route) => false);
           }),
         });
     }
@@ -35,7 +36,8 @@ class _LoginState extends State<Login> {
     User? usuarioLogado = FirebaseAuth.instance.currentUser;
     if(usuarioLogado != null) {
       setState(() {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+          builder: ((context) => const Home())), (route) => false);
       });
     }
   }
