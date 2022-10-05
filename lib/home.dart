@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:projeto_firebase/camera.dart';
+import 'package:projeto_firebase/futureListView.dart';
+import 'package:projeto_firebase/lista.dart';
 import 'package:projeto_firebase/login.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
@@ -162,28 +165,75 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 20, bottom: 20),
-                //   child: ElevatedButton(
-                //     onPressed: () {
-                //       Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //               builder: (context) => const List()));
-                //     },
-                //     style: ElevatedButton.styleFrom(
-                //       primary: Colors.black54,
-                //       elevation: 0,
-                //       padding: const EdgeInsets.all(12),
-                //     ),
-                //     child: const Text(
-                //       "List View",
-                //       style: TextStyle(
-                //         fontSize: 18,
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: 
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ListaView()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black54,
+                      elevation: 0,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    child: const Text(
+                      "List View",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: 
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FutureListView()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black54,
+                      elevation: 0,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    child: const Text(
+                      "future List View",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: 
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Camera()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black54,
+                      elevation: 0,
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    child: const Text(
+                      "Camera e Album",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
