@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Camera extends StatefulWidget {
   const Camera({Key? key}) : super(key: key);
@@ -8,6 +9,9 @@ class Camera extends StatefulWidget {
 }
 
 class _CameraState extends State<Camera> {
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
